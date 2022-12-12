@@ -9,8 +9,8 @@ const Header = () => {
 
   return (
     <Fragment>
-      <Navigation isHeaderOnScreen={isHeaderOnScreen}/>
       <header ref={headerRef} className="relative h-[50vh] bg-hero bg-center bg-cover text-neutral-100">
+        <Navigation isHeaderOnScreen={isHeaderOnScreen}/>
         <div className="absolute p-12 inset-0 flex flex-col justify-center items-center">
           <h1 className="text-6xl p-5">
             Joe Design
