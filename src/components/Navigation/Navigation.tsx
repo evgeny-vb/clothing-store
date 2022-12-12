@@ -2,11 +2,10 @@ import React from 'react';
 import CartButton from "./CartButton";
 
 type Props = {
-  isSubTitleOnScreen: boolean,
   isHeaderOnScreen: boolean
 }
 
-const Navigation = ({isSubTitleOnScreen, isHeaderOnScreen}: Props) => {
+const Navigation = ({isHeaderOnScreen}: Props) => {
 
   return (
     <nav className={`fixed z-10 h-24 w-screen px-12 grid grid-cols-3 items-center text-xl text-neutral-100
@@ -21,7 +20,7 @@ const Navigation = ({isSubTitleOnScreen, isHeaderOnScreen}: Props) => {
         <li className="px-2">Shoes</li>
       </ul>
       <div className="justify-self-center">
-        <h2 className={isSubTitleOnScreen ? "hidden" : "justify-self-center"}>
+        <h2 className={isHeaderOnScreen ? "hidden" : "justify-self-center"}>
           Joe Design
         </h2>
       </div>

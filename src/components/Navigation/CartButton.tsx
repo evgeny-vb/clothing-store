@@ -1,5 +1,5 @@
 import React from 'react';
-import {cartActions} from "../../store/cart-slice";
+import {cartActions} from "../../store/cart/cart-slice";
 import {useAppDispatch} from "../../hooks/reduxHooks";
 
 const CartButton = () => {

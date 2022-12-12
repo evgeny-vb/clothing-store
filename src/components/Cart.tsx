@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
-import {cartActions} from "../store/cart-slice";
-import {useAppDispatch} from "../hooks/reduxHooks";
+import {cartActions} from "../store/cart/cart-slice";
+import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(state => state.cart.items)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -24,10 +26,12 @@ const Cart = () => {
          onClick={toggleCartHandler}
     >
       <div className="absolute bg-white w-96 h-screen inset-y-0 right-0 flex flex-col">
-        <div className="h-20 bg-red-600 my-4">Item 1</div>
-        <div className="h-20 bg-red-600 my-4">Item 2</div>
-        <div className="h-20 bg-red-600 my-4">Item 3</div>
+        {cartItems.map((cartItem) => (
+          <CartItem key={cartItem.id} item={cartItem}/>
+        ))}
       </div>
+
+
     </div>
   );
 };
