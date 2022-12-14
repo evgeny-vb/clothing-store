@@ -21,7 +21,7 @@ const Cart = () => {
 
   return (
     <div className="fixed top-0 left-0
-      backdrop-blur-md z-10
+      backdrop-blur-md z-10 overflow-y-auto
       border-b-2 w-full bg-white/10 h-screen w-screen"
          onClick={toggleCartHandler}
     >

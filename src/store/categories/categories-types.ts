@@ -14,3 +14,7 @@ export type CategoriesState = {
   isLoading: boolean,
   categories: Category[]
 }
+
+export type CategoriesMap = {
+  [key: string]: Product[]
+}

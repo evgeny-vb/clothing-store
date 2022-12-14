@@ -5,12 +5,14 @@ type Props = {
   item: TCartItem
 }
 
-const CartItem = ({item: {id, name, price, quantity}}: Props) => {
+const CartItem = ({item: {imageUrl, name, price, quantity}}: Props) => {
   return (
-    <div className="h-20 bg-red-600 my-4">
-      {name}
-      {price}
-      {quantity}
+    <div className="flex w-full h-44 mb-4">
+      <img src={imageUrl} alt={name} className="w-2/5 h-auto"/>
+      <div className="flex flex-col justify-center">
+        <span className="text-3xl">{name}</span>
+        <span className="text-xl">{quantity} x ${price}</span>
+      </div>
     </div>
   );
 };

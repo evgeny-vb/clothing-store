@@ -1,11 +1,14 @@
 import './App.css'
-import React, {useEffect} from "react";
-import Header from "./components/Header";
-import Cart from "./components/Cart";
-import {useAppDispatch, useAppSelector} from "./hooks/reduxHooks";
+import React, {Suspense, useEffect} from "react";
+import {useAppDispatch} from "./hooks/reduxHooks";
 import {categoriesActions} from "./store/categories/categories-slice";
-import Footer from "./components/Footer";
-import CategoriesPreview from "./components/CategoriesPreview";
+import Layout from "./components/Layout";
+import {Route, Routes} from "react-router-dom";
+
+const Home = React.lazy(() => import("./pages/Home"))
+const Shop = React.lazy(() => import("./pages/Shop"))
+
+
 
 function App() {
   const dispatch = useAppDispatch()
@@ -14,15 +17,16 @@ function App() {
     dispatch(categoriesActions.fetchCategories())
   }, [])
 
-  const isCartOpen = useAppSelector(state => state.cart.isOpen)
-
   return (
-    <div className="">
-      <Header/>
-      {isCartOpen && <Cart/>}
-      <CategoriesPreview/>
-      <Footer/>
-    </div>
+    <Suspense fallback={<div>Loading</div>}>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          {/*@todo add redirect if valid category not found*/}
+          <Route path="shop/:category" element={<Shop/>}/>
+        </Routes>
+      </Layout>
+    </Suspense>
   )
 }
 
