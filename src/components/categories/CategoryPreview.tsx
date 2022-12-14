@@ -1,6 +1,6 @@
 import React from 'react';
-import ProductCard from "./ProductCard";
-import {Category} from "../store/categories/categories-types";
+import ProductCard from "../ProductCard";
+import {Category} from "../../store/categories/categories-types";
 
 const CategoryPreview = ({title, items}: Category) => {
   return (

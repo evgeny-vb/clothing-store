@@ -1,5 +1,5 @@
 import React from 'react';
-import {CartItem as TCartItem} from "../store/cart/cart-types";
+import {CartItem as TCartItem} from "../../store/cart/cart-types";
 
 type Props = {
   item: TCartItem

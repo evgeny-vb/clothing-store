@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import CartButton from "./CartButton";
-import Cart from "../Cart";
+import Cart from "../cart/Cart";
 import {useAppSelector} from "../../hooks/reduxHooks";
 import {Link, useLocation} from "react-router-dom";
 

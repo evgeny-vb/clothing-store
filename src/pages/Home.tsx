@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from "../components/Header";
-import CategoriesPreview from "../components/CategoriesPreview";
+import CategoriesPreview from "../components/categories/CategoriesPreview";
 
 const Home = () => {
   return (

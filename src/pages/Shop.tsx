@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppSelector} from "../hooks/reduxHooks";
-import {categoriesMap} from "../store/categories/categories-selectors";
+import {selectCategoriesMap} from "../store/categories/categories-selectors";
 
 type ShopRouteParams = {
   category: string
@@ -9,13 +9,13 @@ type ShopRouteParams = {
 
 const Shop = () => {
   const {category} = useParams<ShopRouteParams>() as ShopRouteParams
-  const categories = useAppSelector(categoriesMap)
-  const [products, setProducts] = useState(categories[category]);
+  const categoriesMap = useAppSelector(selectCategoriesMap)
+  const [products, setProducts] = useState(categoriesMap[category]);
 
 
   useEffect(() => {
-    setProducts(categories[category])
-  }, [category, categories])
+    setProducts(categoriesMap[category])
+  }, [category, categoriesMap])
 
   return (
     <div>

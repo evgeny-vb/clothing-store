@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
-import {cartActions} from "../store/cart/cart-slice";
-import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
+import {cartActions} from "../../store/cart/cart-slice";
+import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import CartItem from "./CartItem";
+import {selectCartItems} from "../../store/cart/cart-selectors";
 
 const Cart = () => {
   const dispatch = useAppDispatch();
-  const cartItems = useAppSelector(state => state.cart.items)
+  const cartItems = useAppSelector(selectCartItems)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
