@@ -2,7 +2,7 @@ import './App.css'
 import React, {Suspense, useEffect} from "react";
 import {useAppDispatch} from "./hooks/reduxHooks";
 import {categoriesActions} from "./store/categories/categories-slice";
-import Layout from "./components/Layout";
+import Layout from "./components/layout/Layout";
 import {Route, Routes} from "react-router-dom";
 
 const Home = React.lazy(() => import("./pages/Home"))

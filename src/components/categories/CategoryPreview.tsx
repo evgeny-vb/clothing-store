@@ -1,14 +1,14 @@
 import React from 'react';
-import ProductCard from "../ProductCard";
+import ProductCard from "../products/ProductCard";
 import {Category} from "../../store/categories/categories-types";
 
 const CategoryPreview = ({title, items}: Category) => {
   return (
-    <section className="py-10 flex flex-col items-center xl:items-start text-3xl">
-      <h2>
+    <section className="py-10 flex flex-col text-center lg:text-left text-3xl">
+      <h2 className="pb-4">
         {title}
       </h2>
-      <div className="grid grid-cols-2 xl:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
         {items
           .filter((item, id) => id< 4)
           .map((item) => <ProductCard key={item.id} product={item}/>)}

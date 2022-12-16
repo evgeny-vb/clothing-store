@@ -3,6 +3,8 @@ import {cartActions} from "../../store/cart/cart-slice";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import CartItem from "./CartItem";
 import {selectCartItems} from "../../store/cart/cart-selectors";
+import Modal from "../UI/Modal";
+import Button from "../UI/Button";
 
 const Cart = () => {
   const dispatch = useAppDispatch();
@@ -16,24 +18,25 @@ const Cart = () => {
     };
   }, []);
 
-  const toggleCartHandler = () => {
-    dispatch(cartActions.toggle())
+  const closeCartHandler = () => {
+    dispatch(cartActions.close())
   }
 
   return (
-    <div className="fixed top-0 left-0
-      backdrop-blur-md z-10 overflow-y-auto
-      border-b-2 w-full bg-white/10 h-screen w-screen"
-         onClick={toggleCartHandler}
-    >
-      <div className="absolute bg-white w-96 h-screen inset-y-0 right-0 flex flex-col">
+    <Modal onClose={closeCartHandler}>
+      <div className="overflow-auto max-h-[40rem]">
         {cartItems.map((cartItem) => (
           <CartItem key={cartItem.id} item={cartItem}/>
         ))}
       </div>
-
-
-    </div>
+      <div className="flex justify-between my-4 font-bold text-2xl">
+        <span>Total</span>
+        <span>$999</span>
+      </div>
+      <div className="text-right">
+        <Button onClick={closeCartHandler}>Close</Button>
+      </div>
+    </Modal>
   );
 };
 

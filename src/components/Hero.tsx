@@ -3,7 +3,7 @@ import useOnScreen from "../hooks/useOnScreen";
 import {useAppDispatch} from "../hooks/reduxHooks";
 import {uiActions} from "../store/ui/ui-slice";
 
-const Header = () => {
+const Hero = () => {
   const headerRef = useRef(null);
   const isHeaderOnScreen = useOnScreen(headerRef, 0.13);
   const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <Fragment>
-      <header ref={headerRef} className="relative h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
+      <div ref={headerRef} className="relative h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
         <div className="absolute inset-0 flex flex-col justify-center items-center">
           <h1 className="text-6xl p-5">
             Joe Design
@@ -36,9 +36,9 @@ const Header = () => {
             Design Clothing for men
           </h2>
         </div>
-      </header>
+      </div>
     </Fragment>
   );
 };
 
-export default Header;
+export default Hero;

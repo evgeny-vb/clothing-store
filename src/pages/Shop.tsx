@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useParams} from "react-router-dom";
-import {useAppSelector} from "../hooks/reduxHooks";
-import {selectCategoriesMap} from "../store/categories/categories-selectors";
+import Category from "../components/categories/Category";
 
 type ShopRouteParams = {
   category: string
@@ -9,21 +8,11 @@ type ShopRouteParams = {
 
 const Shop = () => {
   const {category} = useParams<ShopRouteParams>() as ShopRouteParams
-  const categoriesMap = useAppSelector(selectCategoriesMap)
-  const [products, setProducts] = useState(categoriesMap[category]);
 
-
-  useEffect(() => {
-    setProducts(categoriesMap[category])
-  }, [category, categoriesMap])
 
   return (
-    <div>
-      {products && products.map((product) => <div key={product.id} className="bg-red-600">
-          {product.name}
-      </div>
-      )}
-      <div className="h-screen"></div>
+    <div className="pt-8 px-10 max-w-screen-2xl mx-auto">
+      <Category category={category}/>
     </div>
   );
 };

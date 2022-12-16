@@ -22,8 +22,11 @@ const cartSlice = createSlice({
       }
       state.items = [...state.items, newItem]
     },
-    toggle(state) {
-      state.isOpen = !state.isOpen
+    open(state){
+      state.isOpen = true
+    },
+    close(state) {
+      state.isOpen = false
     }
   }
 })

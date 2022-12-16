@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from "react";
 import CategoryPreview from "./CategoryPreview";
 import {useAppSelector} from "../../hooks/reduxHooks";
 import {selectCategoriesState} from "../../store/categories/categories-selectors";
@@ -7,16 +7,12 @@ const CategoriesPreview = () => {
   const {isLoading, categories} = useAppSelector(selectCategoriesState)
 
   return (
-    <main className="pt-8 px-10 max-w-screen-2xl mx-auto">
+    <Fragment>
       {isLoading && "LOADING"}
       {categories.map((category) => (
         <CategoryPreview key={category.title} title={category.title} items={category.items}/>
       ))}
-      {/*<CategoryPreview title="Hats"/>*/}
-      {/*<CategoryPreview title="Top"/>*/}
-      {/*<CategoryPreview title="Bottom"/>*/}
-      {/*<CategoryPreview title="Shoes"/>*/}
-    </main>
+    </Fragment>
   );
 };
 
