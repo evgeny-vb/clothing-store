@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <header
-      className={`z-10 h-24 w-full px-12 grid grid-cols-3 items-center text-xl text-neutral-100 ${navFixedClass}`}
+      className={`flex-shrink-0 z-10 h-24 w-full px-12 grid grid-cols-3 items-center text-xl text-neutral-100 ${navFixedClass}`}
     >
       <nav className="justify-self-start">
         <ul className="flex list-none">

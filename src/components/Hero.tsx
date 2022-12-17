@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import useOnScreen from "../hooks/useOnScreen";
 import {useAppDispatch} from "../hooks/reduxHooks";
 import {uiActions} from "../store/ui/ui-slice";
@@ -26,18 +26,16 @@ const Hero = () => {
 
 
   return (
-    <Fragment>
-      <div ref={headerRef} className="relative h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
-        <div className="absolute inset-0 flex flex-col justify-center items-center">
-          <h1 className="text-6xl p-5">
-            Joe Design
-          </h1>
-          <h2 className="text-2xl">
-            Design Clothing for men
-          </h2>
-        </div>
+    <div ref={headerRef} className="relative mb-20 h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
+      <div className="absolute inset-0 flex flex-col justify-center items-center">
+        <h1 className="text-6xl p-5">
+          Joe Design
+        </h1>
+        <h2 className="text-2xl">
+          Design Clothing for men
+        </h2>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

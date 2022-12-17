@@ -17,10 +17,7 @@ const Category = ({category}: Props) => {
   }, [category, categoriesMap]);
 
   return (
-    <div className="">
-      {/*<h2 className="py-10 flex flex-col text-center xl:items-start text-3xl uppercase">*/}
-      {/*  {category}*/}
-      {/*</h2>*/}
+    <div className="mb-20">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
         {products && products.map((product) => <ProductCard key={product.id} product={product}/>
         )}

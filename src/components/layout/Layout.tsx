@@ -8,9 +8,9 @@ type Props = {
 
 const Layout = ({children}: Props) => {
   return (
-    <div>
+    <div className="flex flex-col h-screen justify-between">
       <Header/>
-      <main>
+      <main className="mb-auto">
         {children}
       </main>
       <Footer/>

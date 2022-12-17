@@ -5,8 +5,8 @@ import {Link} from "react-router-dom";
 
 const CategoryPreview = ({title, items}: Category) => {
   return (
-    <section className="py-10 flex flex-col text-center lg:text-left text-3xl">
-      <h2 className="pb-4">
+    <section className="mb-20 flex flex-col text-center lg:text-left text-3xl">
+      <h2 className="pb-8">
         <Link to={`shop/${title.toLowerCase()}`}>
           {title}
         </Link>
