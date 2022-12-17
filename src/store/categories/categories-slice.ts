@@ -1,25 +1,23 @@
 import {CategoriesState} from "./categories-types";
 import {createSlice} from "@reduxjs/toolkit";
-import {DUMB_DATA_CAT} from "../DUMB_DATA";
+import {fetchCategories} from "./categories-thunk";
 
 const initialState: CategoriesState = {
   isLoading: false,
-  categories: []
-}
+  categories: [],
+  error: null
+};
 
 const categoriesSlice = createSlice({
   name: "categories",
   initialState,
-  reducers: {
-    fetchCategories(state) {
-      state.isLoading = true;
-
-      state.categories = DUMB_DATA_CAT;
-
-      state.isLoading = false;
-    }
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchCategories.fulfilled, (state, action) => {
+      state.categories = action.payload;
+    });
   }
-})
+});
 
 export const categoriesActions = categoriesSlice.actions;
 

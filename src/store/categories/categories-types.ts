@@ -7,6 +7,7 @@ export type Product = {
 
 export type Category = {
   title: string,
+  order: number,
   items: Product[]
 }
 

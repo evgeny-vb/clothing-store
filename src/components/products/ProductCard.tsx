@@ -15,8 +15,8 @@ const ProductCard = ({product}: Props) => {
   }
 
   return (
-    <div className="bg-gray-50 p-2 max-w-xl text-lg">
-      <img src="../../../public/images/product.webp" alt="Product image"/>
+    <div className="max-w-xl text-lg">
+      <img className="" src={product.imageUrl} alt="Product image"/>
       <div className="flex justify-between">
         <span>{product.name}</span>
         <button onClick={addToCardHandler}>Add to cart</button>

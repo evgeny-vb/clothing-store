@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import CartButton from "./CartButton";
 import Cart from "../cart/Cart";
-import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
+import {useAppSelector} from "../../hooks/reduxHooks";
 import {Link, NavLink, useLocation} from "react-router-dom";
-import {cartActions} from "../../store/cart/cart-slice";
+import {selectCategories} from "../../store/categories/categories-selectors";
 
 const Header = () => {
   const isCartOpen = useAppSelector(state => state.cart.isOpen);
@@ -11,11 +11,8 @@ const Header = () => {
   const location = useLocation();
   const isHomeLocation = location.pathname === "/";
   const [navFixedClass, setNavFixedClass] = useState("fixed");
-  const dispatch = useAppDispatch();
+  const categories = useAppSelector(selectCategories);
 
-  const openCartHandler = () => {
-    dispatch(cartActions.open())
-  }
 
   useEffect(() => {
     if (isHomeLocation) {
@@ -36,10 +33,9 @@ const Header = () => {
     >
       <nav className="justify-self-start">
         <ul className="flex list-none">
-          <li className="px-2"><NavLink className={navLinkActiveClasses} to="shop/hats">Hats</NavLink></li>
-          <li className="px-2"><NavLink className={navLinkActiveClasses}  to="shop/top">Top</NavLink></li>
-          <li className="px-2"><NavLink className={navLinkActiveClasses}  to="shop/bottom">Bottom</NavLink></li>
-          <li className="px-2"><NavLink className={navLinkActiveClasses}  to="shop/shoes">Shoes</NavLink></li>
+          {categories.map((category) => (
+            <li key={category.title} className="px-2"><NavLink className={navLinkActiveClasses} to={`shop/${category.title.toLowerCase()}`}>{category.title}</NavLink></li>
+          ))}
         </ul>
       </nav>
       <div className="justify-self-center">
@@ -47,9 +43,7 @@ const Header = () => {
           <Link to="/">Joe Design</Link>
         </h2>
       </div>
-      <div className="justify-self-end" onClick={openCartHandler}>
-        <CartButton/>
-      </div>
+      <CartButton/>
       {isCartOpen && <Cart/>}
     </header>
   );

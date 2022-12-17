@@ -24,7 +24,6 @@ const Category = ({category}: Props) => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
         {products && products.map((product) => <ProductCard key={product.id} product={product}/>
         )}
-        <div className="h-screen"></div>
       </div>
     </div>
   );

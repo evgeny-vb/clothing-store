@@ -1,24 +1,24 @@
 import './App.css'
 import React, {Suspense, useEffect} from "react";
 import {useAppDispatch} from "./hooks/reduxHooks";
-import {categoriesActions} from "./store/categories/categories-slice";
 import Layout from "./components/layout/Layout";
 import {Route, Routes} from "react-router-dom";
+import {fetchCategories} from "./store/categories/categories-thunk";
+import Spinner from "./components/spinner";
 
 const Home = React.lazy(() => import("./pages/Home"))
 const Shop = React.lazy(() => import("./pages/Shop"))
-
 
 
 function App() {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(categoriesActions.fetchCategories())
+    dispatch(fetchCategories())
   }, [])
 
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<Spinner/>}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home/>}/>
