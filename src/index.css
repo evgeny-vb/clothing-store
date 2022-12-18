@@ -25,3 +25,9 @@
 
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply font-serif;
+    }
+}

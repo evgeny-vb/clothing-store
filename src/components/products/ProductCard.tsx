@@ -11,7 +11,7 @@ type Props = {
 const ProductCard = ({product}: Props) => {
   const dispatch = useAppDispatch();
 
-  const addToCardHandler = () => {
+  const addToCartHandler = () => {
     dispatch(cartActions.addItem(product))
   }
 
@@ -23,7 +23,7 @@ const ProductCard = ({product}: Props) => {
         <span>${product.price}</span>
       </footer>
       <Button
-        onClick={addToCardHandler}
+        onClick={addToCartHandler}
         className="absolute bottom-20 opacity-75 hidden group-hover:flex hover:opacity-100"
       >
         Add to cart
