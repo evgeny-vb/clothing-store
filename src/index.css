@@ -3,7 +3,7 @@
 /* Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #6969dd #FFFFFF;
+    scrollbar-color: rgba(17, 24, 39) #FFFFFF;
 }
 
 /* Chrome, Edge, and Safari */

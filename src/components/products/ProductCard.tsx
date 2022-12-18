@@ -24,7 +24,7 @@ const ProductCard = ({product}: Props) => {
       </footer>
       <Button
         onClick={addToCardHandler}
-        className="absolute top-[75%] opacity-75 hidden group-hover:flex hover:opacity-100"
+        className="absolute bottom-20 opacity-75 hidden group-hover:flex hover:opacity-100"
       >
         Add to cart
       </Button>

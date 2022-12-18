@@ -7,5 +7,6 @@ export type CartItem = Product & {
 export type CartState = {
   items: CartItem[],
   totalQuantity: number,
+  totalAmount: number,
   isOpen: boolean
 }
