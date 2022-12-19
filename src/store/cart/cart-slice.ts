@@ -38,13 +38,26 @@ const cartSlice = createSlice({
 
       const cartItem = state.items.find(item => item.id === action.payload.id);
 
-      if (!cartItem) return
+      if (!cartItem) return;
 
       if (cartItem.quantity > 1) {
         cartItem.quantity -= 1;
       } else {
-        state.items = state.items.filter(item => item.id !== cartItem.id)
+        state.items = state.items.filter(item => item.id !== cartItem.id);
       }
+    },
+    clearItem(state, action: PayloadAction<CartItem>) {
+      const cartItem = state.items.find(item => item.id === action.payload.id);
+
+      if (!cartItem) return;
+
+      state.totalQuantity -= cartItem.quantity;
+      state.totalAmount -= cartItem.quantity * cartItem.price;
+
+      state.items = state.items.filter(item => item.id !== cartItem.id);
+    },
+    emptyCart() {
+      return initialState;
     },
     open(state) {
       state.isOpen = true;

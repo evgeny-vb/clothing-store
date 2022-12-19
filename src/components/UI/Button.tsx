@@ -23,7 +23,7 @@ const Button = ({children, onClick, className, type}: Props) => {
   return (
     <button
       onClick={onClick}
-      className={`cursor-pointer border-2 rounded-md border-slate-800
+      className={`cursor-pointer border-2 rounded border-slate-800
       py-2 px-8 font-bold ${typeClasses}
       ${className}`}
     >

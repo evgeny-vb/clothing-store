@@ -25,7 +25,7 @@ const Backdrop = ({onClose}: BackdropProps) => (
 
 const ModalOverlay = ({children}: ModalOverlayProps) => (
   <div className="fixed z-30 p-4 bg-white
-    shadow-sm rounded-md shadow-zinc-800
+    shadow-sm rounded shadow-zinc-800
     w-screen h-screen
     md:w-[40rem] md:h-auto md:top-[15vh] md:left-[calc(50%-20rem)]"
   >

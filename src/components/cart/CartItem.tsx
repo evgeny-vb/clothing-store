@@ -20,6 +20,9 @@ const CartItem = ({item}: Props) => {
     dispatch(cartActions.removeItem(item));
   };
 
+  const clearItemHandler = () => {
+    dispatch(cartActions.clearItem(item));
+  };
 
   return (
     <div className="flex w-full h-44 mb-4">
@@ -27,12 +30,13 @@ const CartItem = ({item}: Props) => {
       <div className="w-[80%] flex flex-col justify-around py-8 px-4">
         <span className="text-2xl">{name}</span>
         <div className="flex text-2xl justify-between">
-          <div className="flex">
-            <span className="cursor-pointer" onClick={removeFromCartHandler}>&#10094;</span>
-            <span className="px-2">{quantity} </span>
-            <span className="cursor-pointer" onClick={addToCartHandler}>&#10095;</span>
-          </div>
           <span className="">${price}</span>
+          <div className="flex">
+            <span onClick={removeFromCartHandler} className="cursor-pointer">&#10094;</span>
+            <span className="px-2">{quantity} </span>
+            <span onClick={addToCartHandler} className="cursor-pointer">&#10095;</span>
+          </div>
+          <span onClick={clearItemHandler} className="cursor-pointer">&#10005;</span>
         </div>
       </div>
     </div>

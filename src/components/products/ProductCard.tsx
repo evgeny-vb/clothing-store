@@ -19,7 +19,7 @@ const ProductCard = ({product}: Props) => {
     <div className="relative max-w-xl text-lg flex flex-col items-center group">
       <img className="group-hover:opacity-80" src={product.imageUrl} alt="Product image"/>
       <footer className="w-full flex justify-between px-1">
-        <span className="max-w-[75%]">{product.name}</span>
+        <span className="max-w-[75%] text-left">{product.name}</span>
         <span>${product.price}</span>
       </footer>
       <Button

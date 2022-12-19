@@ -8,6 +8,7 @@ import Spinner from "./components/spinner";
 
 const Home = React.lazy(() => import("./pages/Home"))
 const Shop = React.lazy(() => import("./pages/Shop"))
+const Checkout = React.lazy(() => import("./pages/Checkout"))
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           {/*@todo add redirect if valid category not found*/}
           <Route path="shop/:category" element={<Shop/>}/>
+          <Route path="checkout" element={<Checkout/>}/>
         </Routes>
       </Layout>
     </Suspense>
