@@ -23,7 +23,7 @@ const Header = () => {
   }, [isHomeLocation, isNavFixed]);
 
   const navLinkActiveClasses = ({isActive}: {isActive: boolean}) => {
-    return isActive ? "text-slate-700 underline" : undefined
+    return isActive ? "text-slate-500 underline" : undefined
   }
 
 

@@ -7,7 +7,7 @@ export enum BUTTON_TYPES {
 
 type Props = {
   children?: React.ReactNode,
-  onClick: () => void,
+  onClick?: () => void,
   className?: string,
   type?: BUTTON_TYPES
 }
