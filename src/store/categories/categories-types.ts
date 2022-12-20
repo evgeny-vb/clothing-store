@@ -14,7 +14,7 @@ export type Category = {
 export type CategoriesState = {
   isLoading: boolean,
   categories: Category[],
-  error: Error | null
+  error: string | undefined
 }
 
 export type CategoriesMap = {

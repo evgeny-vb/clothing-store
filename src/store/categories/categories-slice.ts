@@ -5,7 +5,7 @@ import {fetchCategories} from "./categories-thunk";
 const initialState: CategoriesState = {
   isLoading: false,
   categories: [],
-  error: null
+  error: undefined
 };
 
 const categoriesSlice = createSlice({
@@ -14,8 +14,16 @@ const categoriesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCategories.fulfilled, (state, action) => {
+      state.isLoading = false;
       state.categories = action.payload;
     });
+    builder.addCase(fetchCategories.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchCategories.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
+    })
   }
 });
 
