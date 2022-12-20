@@ -2,8 +2,9 @@ import React, {useEffect, useState} from "react";
 import CartButton from "./CartButton";
 import Cart from "../cart/Cart";
 import {useAppSelector} from "../../hooks/reduxHooks";
-import {Link, NavLink, useLocation} from "react-router-dom";
-import {selectCategories} from "../../store/categories/categories-selectors";
+import {Link, useLocation} from "react-router-dom";
+import MobileMenuButton from "./MobileMenuButton";
+import Navigation from "./Navigation";
 
 const Header = () => {
   const isCartOpen = useAppSelector(state => state.cart.isOpen);
@@ -11,7 +12,7 @@ const Header = () => {
   const location = useLocation();
   const isHomeLocation = location.pathname === "/";
   const [navFixedClass, setNavFixedClass] = useState("fixed");
-  const categories = useAppSelector(selectCategories);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
   useEffect(() => {
@@ -22,22 +23,21 @@ const Header = () => {
     }
   }, [isHomeLocation, isNavFixed]);
 
-  const navLinkActiveClasses = ({isActive}: {isActive: boolean}) => {
-    return isActive ? "text-slate-500 underline" : undefined
-  }
 
+
+  const toggleMobileMenuHandler = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   return (
     <header
       className={`flex-shrink-0 z-10 h-24 w-full px-12 grid grid-cols-3 items-center text-xl text-neutral-100 ${navFixedClass}`}
     >
-      <nav className="justify-self-start">
-        <ul className="flex list-none">
-          {categories.map((category) => (
-            <li key={category.title} className="px-2"><NavLink className={navLinkActiveClasses} to={`shop/${category.title.toLowerCase()}`}>{category.title}</NavLink></li>
-          ))}
-        </ul>
-      </nav>
+      {isMobileMenuOpen && <div className="fixed top-0 left-0 z-20 w-full h-screen
+      backdrop-blur-md bg-white/90 md:hidden"
+      />}
+      <MobileMenuButton isOpen={isMobileMenuOpen} onToggle={toggleMobileMenuHandler}/>
+      <Navigation isMenuOpen={isMobileMenuOpen} onMenuToggle={toggleMobileMenuHandler}/>
       <div className="justify-self-center">
         <h2 className={isNavFixed || !isHomeLocation ? "justify-self-center" : "hidden"}>
           <Link to="/">Joe Design</Link>
