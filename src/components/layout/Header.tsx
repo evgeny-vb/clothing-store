@@ -11,19 +11,17 @@ const Header = () => {
   const isNavFixed = useAppSelector(state => state.ui.isNavFixed);
   const location = useLocation();
   const isHomeLocation = location.pathname === "/";
-  const [navFixedClass, setNavFixedClass] = useState("fixed");
+  const [headerFixedClass, setHeaderFixedClass] = useState("fixed");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
   useEffect(() => {
     if (isHomeLocation) {
-      setNavFixedClass(isNavFixed ? "fixed bg-white text-black" : "absolute");
+      setHeaderFixedClass(isNavFixed ? "fixed bg-white text-black" : "absolute");
     } else {
-      setNavFixedClass("sticky left-0 top-0 bg-white text-black");
+      setHeaderFixedClass("sticky left-0 top-0 bg-white text-black");
     }
   }, [isHomeLocation, isNavFixed]);
-
-
 
   const toggleMobileMenuHandler = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -31,11 +29,8 @@ const Header = () => {
 
   return (
     <header
-      className={`flex-shrink-0 z-10 h-24 w-full px-12 grid grid-cols-3 items-center text-xl text-neutral-100 ${navFixedClass}`}
+      className={`flex-shrink-0 z-10 h-24 w-full px-12 grid grid-cols-3 items-center text-xl text-neutral-100 ${headerFixedClass}`}
     >
-      {isMobileMenuOpen && <div className="fixed top-0 left-0 z-20 w-full h-screen
-      backdrop-blur-md bg-white/90 md:hidden"
-      />}
       <MobileMenuButton isOpen={isMobileMenuOpen} onToggle={toggleMobileMenuHandler}/>
       <Navigation isMenuOpen={isMobileMenuOpen} onMenuToggle={toggleMobileMenuHandler}/>
       <div className="justify-self-center">
