@@ -3,9 +3,9 @@ import cartSlice from "./cart/cart-slice";
 import categoriesSlice from "./categories/categories-slice";
 import uiSlice from "./ui/ui-slice";
 import storage from "redux-persist/lib/storage";
-import {persistReducer} from "redux-persist";
+import {persistReducer, FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from "redux-persist";
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
   cart: cartSlice.reducer,
   categories: categoriesSlice.reducer,
   ui: uiSlice.reducer
@@ -17,11 +17,17 @@ const persistConfig = {
   whitelist: ["cart"]
 };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
-  devTools: process.env.NODE_ENV !== "production"
+  devTools: process.env.NODE_ENV !== "production",
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    })
 });
 
 export default store;

@@ -17,17 +17,20 @@ const ProductCard = ({product}: Props) => {
 
   return (
     <div className="relative max-w-xl text-lg flex flex-col items-center group">
-      <img className="group-hover:opacity-80" src={product.imageUrl} alt="Product image"/>
+      <div className="relative flex flex-col justify-center items-center">
+        <img className="group-hover:opacity-80" src={product.imageUrl} alt="Product image"/>
+        <Button
+          onClick={addToCartHandler}
+          className="absolute bottom-2 opacity-80 hidden group-hover:flex hover:opacity-100"
+        >
+          Add to cart
+        </Button>
+      </div>
       <footer className="w-full flex justify-between px-1">
         <span className="max-w-[75%] text-left">{product.name}</span>
         <span>${product.price}</span>
       </footer>
-      <Button
-        onClick={addToCartHandler}
-        className="absolute bottom-20 opacity-75 hidden group-hover:flex hover:opacity-100"
-      >
-        Add to cart
-      </Button>
+
     </div>
   );
 };

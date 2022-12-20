@@ -29,7 +29,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="mx-auto md:max-w-2xl">
+    <div className="mx-auto pre-md:px-3 md:max-w-2xl">
       <h2 className="text-center text-5xl mt-4 mb-12">Checkout</h2>
       {cartIsEmpty
         ?
@@ -49,8 +49,8 @@ const Checkout = () => {
         </Fragment>
       }
       {!cartIsEmpty && oderModalOpened && <Modal onClose={closeModalHandler}>
-        <div className="flex flex-col items-center">
-          <div className="text-2xl py-4 mb-6">
+        <div className="flex flex-col items-center justify-center h-full">
+          <div className="text-2xl text-center py-4 mb-6">
             Order for {userData?.name} was successfully created!
           </div>
           <Button onClick={closeModalHandler}>Great!</Button>

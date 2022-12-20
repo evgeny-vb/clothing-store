@@ -26,7 +26,7 @@ const Hero = () => {
 
 
   return (
-    <div ref={headerRef} className="relative mb-20 h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
+    <div ref={headerRef} className="relative mb-10 md:mb-20 h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
       <div className="absolute inset-0 flex flex-col justify-center items-center">
         <h1 className="text-6xl p-5">
           Joe Design
