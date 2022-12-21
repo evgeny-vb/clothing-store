@@ -2,7 +2,7 @@
 
 Simple clothing store app using React, TypeScript, Redux-Toolkit, TailwindCSS, Firestore Database.
 
-**Deployed Example:** 
+**Deployed Example:** https://joe-design.netlify.app/
 
 **Required ENV variables:**
 
