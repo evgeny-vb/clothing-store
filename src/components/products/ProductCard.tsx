@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from "react";
 import {useAppDispatch} from "../../hooks/reduxHooks";
 import {cartActions} from "../../store/cart/cart-slice";
 import {Product} from "../../store/categories/categories-types";
@@ -11,9 +11,9 @@ type Props = {
 const ProductCard = ({product}: Props) => {
   const dispatch = useAppDispatch();
 
-  const addToCartHandler = () => {
-    dispatch(cartActions.addItem(product))
-  }
+  const addToCartHandler = useCallback(() => {
+    dispatch(cartActions.addItem(product));
+  }, []);
 
   return (
     <div className="relative max-w-xl text-lg flex flex-col items-center group">
