@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import {cartActions} from "../../store/cart/cart-slice";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import CartItem from "./CartItem";
@@ -20,14 +20,14 @@ const Cart = () => {
     };
   }, []);
 
-  const closeCartHandler = () => {
+  const closeCartHandler = useCallback(() => {
     dispatch(cartActions.close());
-  };
+  }, []);
 
-  const checkoutHandler = () => {
-    navigate("/checkout")
+  const checkoutHandler = useCallback(() => {
+    navigate("/checkout");
     dispatch(cartActions.close());
-  }
+  }, []);
 
   return (
     <Modal onClose={closeCartHandler}>
@@ -44,7 +44,8 @@ const Cart = () => {
         </div>
         <div className="flex justify-between">
           {!cart.items.length && <div/>}
-          {!!cart.items.length && <Button onClick={checkoutHandler} type={BUTTON_TYPES.inverted}>Go To Checkout</Button>}
+          {!!cart.items.length &&
+            <Button onClick={checkoutHandler} type={BUTTON_TYPES.inverted}>Go To Checkout</Button>}
           <Button onClick={closeCartHandler}>Close</Button>
         </div>
       </div>

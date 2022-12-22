@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import CartButton from "./CartButton";
 import Cart from "../cart/Cart";
 import {useAppSelector} from "../../hooks/reduxHooks";
@@ -23,9 +23,9 @@ const Header = () => {
     }
   }, [isHomeLocation, isNavFixed]);
 
-  const toggleMobileMenuHandler = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+  const toggleMobileMenuHandler = useCallback(() => {
+    setIsMobileMenuOpen(prevState => !prevState)
+  }, [])
 
   return (
     <header

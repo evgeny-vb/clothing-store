@@ -4,10 +4,7 @@ import {RootState} from "../store";
 
 export const selectCategoriesState = (state: RootState) => state.categories;
 
-export const selectCategories = createSelector(
-  [selectCategoriesState],
-  (categoriesState) => categoriesState.categories
-);
+export const selectCategories = (state: RootState) => state.categories.categories;
 
 export const selectCategoriesMap = createSelector(
   [selectCategories],
