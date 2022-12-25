@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <header
-      className={`flex-shrink-0 z-10 h-16 md:h-24 w-full px-4 md:px-10 grid grid-cols-3 items-center text-xl text-neutral-100 ${headerFixedClass}`}
+      className={`flex-shrink-0 z-10 h-16 md:h-24 w-full px-2 md:px-10 grid grid-cols-3 items-center text-xl text-neutral-100 ${headerFixedClass}`}
     >
       <MobileMenuButton isOpen={isMobileMenuOpen} onToggle={toggleMobileMenuHandler}/>
       <Navigation isMenuOpen={isMobileMenuOpen} onMenuToggle={toggleMobileMenuHandler}/>
