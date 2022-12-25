@@ -4,8 +4,15 @@ Simple clothing store app using React, TypeScript, Redux-Toolkit, TailwindCSS, F
 
 **Deployed Example:** https://joe-design.netlify.app/
 
+**Screenshots:**
+
+| Desktop View                                        | Mobile View                                         |
+|-----------------------------------------------------|-----------------------------------------------------|
+| ![Calculator dark theme](./.github/DesktopView.png) | ![Calculator light theme](./.github/MobileView.png) |
+
+
 **Required ENV variables:**
-- VITE_FIREBASE_apiKey
+- VITE_FIREBASE_apiKey, 
 - VITE_FIREBASE_authDomain
 - VITE_FIREBASE_projectId
 - VITE_FIREBASE_storageBucket
