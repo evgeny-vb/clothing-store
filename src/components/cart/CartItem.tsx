@@ -25,11 +25,11 @@ const CartItem = ({item}: Props) => {
   };
 
   return (
-    <div className="flex w-full h-44 mb-4">
+    <div className="flex w-full h-28 md:h-40 mb-1 md:mb-4">
       <img src={imageUrl} alt={name} className="w-[20%] object-contain"/>
-      <div className="w-[80%] flex flex-col justify-around py-8 px-4">
-        <span className="text-2xl">{name}</span>
-        <div className="flex text-2xl justify-between">
+      <div className="w-[80%] flex flex-col justify-around py-6 md:py-8 px-2 md:px-4">
+        <span className="text-xl md:text-2xl">{name}</span>
+        <div className="flex justify-between text-xl md:text-2xl">
           <span className="">${price}</span>
           <div className="flex">
             <span onClick={removeFromCartHandler} className="cursor-pointer">&#10094;</span>

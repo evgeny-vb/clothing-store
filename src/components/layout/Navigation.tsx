@@ -1,7 +1,9 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import {useAppSelector} from "../../hooks/reduxHooks";
 import {selectCategories} from "../../store/categories/categories-selectors";
+import {useHideScroll} from "../../hooks/useHideScroll";
+import {useWindowSize} from "../../hooks/useWindowSize";
 
 type Props = {
   isMenuOpen: boolean,
@@ -9,12 +11,21 @@ type Props = {
 }
 
 const Navigation = ({isMenuOpen, onMenuToggle}: Props) => {
+  useHideScroll(isMenuOpen);
+  const windowSize = useWindowSize();
+  const windowWidth = windowSize[0];
   const categories = useAppSelector(selectCategories);
+
+  useEffect(() => {
+    if (isMenuOpen && windowWidth > 767) {
+      onMenuToggle();
+    }
+  }, [isMenuOpen, windowSize])
 
   const navLinkActiveClasses = ({isActive}: { isActive: boolean }) => {
     return isActive ? "text-slate-500 underline" : undefined;
   };
-  // pre-md:hidden
+
   const navClasses = isMenuOpen ? "pre-md:text-black" : "pre-md:-translate-x-full";
 
   return (
@@ -27,7 +38,6 @@ const Navigation = ({isMenuOpen, onMenuToggle}: Props) => {
         pre-md:fixed pre-md:inset-0 pre-md:z-30 pre-md:text-3xl pre-md:w-screen pre-md:h-screen 
         pre-md:flex pre-md:justify-center pre-md:items-center transition-all ease-in duration-300
         ${navClasses}`}
-           onClick={onMenuToggle}
       >
         <ul className={`list-none flex flex-col md:flex-row`}>
           {categories.map((category) => (

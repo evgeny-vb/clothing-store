@@ -2,9 +2,10 @@ import React, {useCallback, useEffect, useState} from "react";
 import CartButton from "./CartButton";
 import Cart from "../cart/Cart";
 import {useAppSelector} from "../../hooks/reduxHooks";
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import MobileMenuButton from "./MobileMenuButton";
 import Navigation from "./Navigation";
+import Logo from "./Logo";
 
 const Header = () => {
   const isCartOpen = useAppSelector(state => state.cart.isOpen);
@@ -33,11 +34,7 @@ const Header = () => {
     >
       <MobileMenuButton isOpen={isMobileMenuOpen} onToggle={toggleMobileMenuHandler}/>
       <Navigation isMenuOpen={isMobileMenuOpen} onMenuToggle={toggleMobileMenuHandler}/>
-      <div className="justify-self-center">
-        <h2 className={isNavFixed || !isHomeLocation ? "justify-self-center" : "hidden"}>
-          <Link to="/">Joe Design</Link>
-        </h2>
-      </div>
+      <Logo isNavFixed={isNavFixed} isHomeLocation={isHomeLocation}/>
       <CartButton/>
       {isCartOpen && <Cart/>}
     </header>

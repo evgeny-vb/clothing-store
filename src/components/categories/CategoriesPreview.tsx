@@ -2,7 +2,7 @@ import React from "react";
 import CategoryPreview from "./CategoryPreview";
 import {useAppSelector} from "../../hooks/reduxHooks";
 import {selectCategoriesState} from "../../store/categories/categories-selectors";
-import Spinner from "../spinner";
+import Spinner from "../Spinner";
 
 const CategoriesPreview = () => {
   const {isLoading, categories} = useAppSelector(selectCategoriesState)

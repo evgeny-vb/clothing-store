@@ -26,12 +26,12 @@ const Hero = () => {
 
 
   return (
-    <div ref={headerRef} className="relative mb-10 md:mb-20 h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
+    <div ref={headerRef} className="relative mb-6 md:mb-20 h-[50vh] flex flex-col bg-hero bg-center bg-cover text-neutral-100">
       <div className="absolute inset-0 flex flex-col justify-center items-center">
-        <h1 className="text-6xl p-5">
+        <h1 className="text-4xl md:text-6xl p-3 md:p-5">
           Joe Design
         </h1>
-        <h2 className="text-2xl">
+        <h2 className="text-lg">
           Design Clothing for men
         </h2>
       </div>

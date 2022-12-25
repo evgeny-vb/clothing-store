@@ -1,21 +1,15 @@
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback} from "react";
 import {cartActions} from "../../store/cart/cart-slice";
 import {useAppDispatch} from "../../hooks/reduxHooks";
 import Modal from "../UI/Modal";
 import CartTotal from "./CartTotal";
 import CartButtons from "./CartButtons";
 import CartItems from "./CartItems";
+import {useHideScroll} from "../../hooks/useHideScroll";
 
 const Cart = () => {
+  useHideScroll();
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, []);
 
   const closeCartHandler = useCallback(() => {
     dispatch(cartActions.close());

@@ -4,7 +4,7 @@ import {useAppDispatch} from "./hooks/reduxHooks";
 import Layout from "./components/layout/Layout";
 import {Route, Routes} from "react-router-dom";
 import {fetchCategories} from "./store/categories/categories-thunk";
-import Spinner from "./components/spinner";
+import Spinner from "./components/Spinner";
 
 const Home = React.lazy(() => import("./pages/Home"))
 const Shop = React.lazy(() => import("./pages/Shop"))

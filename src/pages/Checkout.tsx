@@ -30,7 +30,7 @@ const Checkout = () => {
 
   return (
     <div className="mx-auto pre-md:px-3 md:max-w-2xl">
-      <h2 className="text-center text-5xl mt-4 mb-12">Checkout</h2>
+      <h2 className="text-center text-3xl md:text-5xl mt-4 mb-6 md:mb-12">Checkout</h2>
       {cartIsEmpty
         ?
         <div className="text-center text-2xl">

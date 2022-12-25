@@ -11,9 +11,7 @@ const Shop = () => {
 
 
   return (
-    <div className="pt-8 px-10 max-w-screen-2xl mx-auto">
-      <Category category={category}/>
-    </div>
+    <Category category={category}/>
   );
 };
 
