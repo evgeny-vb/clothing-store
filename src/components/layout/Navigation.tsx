@@ -2,7 +2,7 @@ import React, {Fragment, useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import {useAppSelector} from "../../hooks/reduxHooks";
 import {selectCategories} from "../../store/categories/categories-selectors";
-import {useHideScroll} from "../../hooks/useHideScroll";
+import {useHideBodyScroll} from "../../hooks/useHideBodyScroll";
 import {useWindowSize} from "../../hooks/useWindowSize";
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Navigation = ({isMenuOpen, onMenuToggle}: Props) => {
-  useHideScroll(isMenuOpen);
+  useHideBodyScroll(isMenuOpen);
   const windowSize = useWindowSize();
   const windowWidth = windowSize[0];
   const categories = useAppSelector(selectCategories);
@@ -31,12 +31,12 @@ const Navigation = ({isMenuOpen, onMenuToggle}: Props) => {
   return (
     <Fragment>
       <div className={`fixed top-0 left-0 z-20 w-full h-screen
-          backdrop-blur-md bg-white/90 transition-all ease-in duration-250
+          backdrop-blur-md bg-white/90 pre-md:transition-all pre-md:ease-in pre-md:duration-250
           md:hidden ${!isMenuOpen && "-translate-x-full"}`}
       />
       <nav className={`md:justify-self-start
         pre-md:fixed pre-md:inset-0 pre-md:z-30 pre-md:text-3xl pre-md:w-screen pre-md:h-screen 
-        pre-md:flex pre-md:justify-center pre-md:items-center transition-all ease-in duration-300
+        pre-md:flex pre-md:justify-center pre-md:items-center pre-md:transition-all pre-md:ease-in pre-md:duration-250
         ${navClasses}`}
       >
         <ul className={`list-none flex flex-col md:flex-row`}>

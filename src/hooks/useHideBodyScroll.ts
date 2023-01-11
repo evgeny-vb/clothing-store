@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-export const useHideScroll = (condition: boolean = true) => {
+export const useHideBodyScroll = (condition: boolean = true) => {
   useEffect(() => {
     if (condition)
       document.body.style.overflow = "hidden";

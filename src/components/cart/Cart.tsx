@@ -5,10 +5,10 @@ import Modal from "../UI/Modal";
 import CartTotal from "./CartTotal";
 import CartButtons from "./CartButtons";
 import CartItems from "./CartItems";
-import {useHideScroll} from "../../hooks/useHideScroll";
+import {useHideBodyScroll} from "../../hooks/useHideBodyScroll";
 
 const Cart = () => {
-  useHideScroll();
+  useHideBodyScroll();
   const dispatch = useAppDispatch();
 
   const closeCartHandler = useCallback(() => {

@@ -31,7 +31,7 @@ const Hero = () => {
         <h1 className="text-4xl md:text-6xl p-3 md:p-5">
           Joe Design
         </h1>
-        <h2 className="text-lg">
+        <h2 className="text-lg md:text-2xl">
           Design Clothing for men
         </h2>
       </div>
