@@ -13,10 +13,10 @@ type Props = {
 }
 
 const Button = ({children, onClick, className, type}: Props) => {
-  let typeClasses = "bg-white text-slate-900 hover:bg-slate-800 hover:text-white";
+  let typeClasses = "bg-white text-slate-900 hover:bg-slate-800 hover:text-white focus:bg-slate-800 focus:text-white";
 
   if (type === BUTTON_TYPES.inverted) {
-    typeClasses = "bg-slate-800 text-white hover:bg-white hover:text-slate-900";
+    typeClasses = "bg-slate-800 text-white hover:bg-white hover:text-slate-900 focus:bg-white focus:text-slate-900";
   }
 
 

@@ -2,7 +2,7 @@ import React, {Fragment, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
 import {selectCartState} from "../store/cart/cart-selectors";
 import CartItem from "../components/cart/CartItem";
-import CheckoutForm, {UserData} from "../components/CheckoutForm";
+import CheckoutForm, {UserData} from "../components/checkout/CheckoutForm";
 import Modal from "../components/UI/Modal";
 import Button from "../components/UI/Button";
 import {cartActions} from "../store/cart/cart-slice";

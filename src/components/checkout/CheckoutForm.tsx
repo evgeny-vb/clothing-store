@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
-import Input from "./UI/Input";
-import Button, {BUTTON_TYPES} from "./UI/Button";
+import Input from "../UI/Input";
+import Button, {BUTTON_TYPES} from "../UI/Button";
 
 export type UserData = {name: string, email: string, address: string, postal: string}
 type CreateOrder = (userData: UserData) => void

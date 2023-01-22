@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Portal from "../Portal";
+import Portal from "./Portal";
 
 
 type BackdropProps = {
